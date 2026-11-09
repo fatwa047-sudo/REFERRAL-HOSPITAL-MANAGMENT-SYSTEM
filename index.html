@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Referral Hospital | Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <h2>🏥 Referral Hospital</h2>
+            <p>Management System</p>
+        </div>
+
+        <nav>
+            <a href="#dashboard" class="active" data-page="dashboard">Dashboard</a>
+            <a href="#patients" data-page="patients">Patients</a>
+            <a href="#doctors" data-page="doctors">Doctors</a>
+            <a href="#appointments" data-page="appointments">Appointments</a>
+            <a href="#departments" data-page="departments">Departments</a>
+            <a href="#reception" data-page="reception">Reception</a>
+            <a href="#records" data-page="records">Medical Records</a>
+            <a href="#pharmacy" data-page="pharmacy">Pharmacy</a>
+            <a href="#laboratory" data-page="laboratory">Laboratory</a>
+            <a href="#billing" data-page="billing">Billing</a>
+            <a href="#staff" data-page="staff">Staff</a>
+            <a href="#reports" data-page="reports">Reports</a>
+        </nav>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOP HEADER -->
+        <header class="topbar">
+
+            <div>
+                <h2>Hospital Dashboard</h2>
+                <p>Welcome to Referral Hospital</p>
+            </div>
+
+            <div class="profile">
+                <span>Administrator</span>
+                <span>👤</span>
+            </div>
+
+        </header>
+
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="page active">
+
+            <h2>Dashboard Overview</h2>
+
+            <div class="dashboard-cards">
+
+                <div class="card">
+                    <h3>Total Patients</h3>
+                    <p id="patientCount">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Total Doctors</h3>
+                    <p id="doctorCount">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Appointments</h3>
+                    <p id="appointmentCount">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Departments</h3>
+                    <p id="departmentCount">0</p>
+                </div>
+
+            </div>
+
+            <div class="content-card">
+
+                <h3>Recent Appointments</h3>
+
+                <div class="table-container">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Patient</th>
+                                <th>Doctor</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="recentAppointments">
+                            <tr>
+                                <td colspan="4">No appointments available.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- PATIENT MANAGEMENT -->
+        <section id="patients" class="page">
+
+            <h2>Patient Management</h2>
+
+            <div class="content-card">
+                <h3>Patient Information</h3>
+                <p>Register, search and manage hospital patients.</p>
+            </div>
+
+        </section>
+
+        <!-- DOCTOR MANAGEMENT -->
+        <section id="doctors" class="page">
+
+            <h2>Doctor Management</h2>
+
+            <div class="content-card">
+                <h3>Hospital Doctors</h3>
+                <p>Manage doctor profiles and specialties.</p>
+            </div>
+
+        </section>
+
+        <!-- APPOINTMENT MANAGEMENT -->
+        <section id="appointments" class="page">
+
+            <h2>Appointment Management</h2>
+
+            <p class="section-description">
+                Book and manage patient appointments.
+            </p>
+
+            <div class="form-card">
+
+                <h3>🏥 Book New Appointment</h3>
+
+                <form id="appointmentForm">
+
+                    <div class="form-grid">
+
+                        <!-- PATIENT ID -->
+                        <div class="form-group">
+                            <label for="patientId">Patient ID</label>
+
+                            <input
+                                type="text"
+                                id="patientId"
+                                placeholder="Enter patient ID"
+                                required
+                            >
+                            <br><br>
+
+                        </div>
+
+                        <!-- PATIENT NAME -->
+                        <div class="form-group">
+                            <label for="patientName">Patient Full Name</label>
+
+                            <input
+                                type="text"
+                                id="patientName"
+                                placeholder="Enter full name"
+                                required
+                            >
+                            <br><br>
+
+                        </div>
+
+                        <!-- PHONE -->
+                        <div class="form-group">
+                            <label for="patientPhone">Phone Number</label>
+
+                            <input
+                                type="tel"
+                                id="patientPhone"
+                                placeholder="0712345678"
+                                required
+                            >
+                            <br><br>
+                            
+                        </div>
+
+                        <!-- DOCTOR -->
+                        <div class="form-group">
+                            <label for="doctorName">Select Doctor</label>
+
+                            <select id="doctorName" required>
+
+                                <option value="">Choose Doctor</option>
+
+                                <option value="Dr. Ahmed">Dr. Ahmed</option>
+
+                                <option value="Dr. Fatima">Dr. Fatima</option>
+
+                                <option value="Dr. Hassan">Dr. Hassan</option>
+
+                                <option value="Dr. Mary">Dr. Mary</option>
+
+                            </select>
+                        </div>
+
+                        <!-- DEPARTMENT -->
+                        <div class="form-group">
+                            <label for="department">Department</label>
+
+                            <select id="department" required>
+
+                                <option value="">Choose Department</option>
+
+                                <option value="General Medicine">General Medicine</option>
+
+                                <option value="Pediatrics">Pediatrics</option>
+
+                                <option value="Maternity">Maternity</option>
+
+                                <option value="Dental Care">Dental Care</option>
+
+                                <option value="Laboratory">Laboratory</option>
+
+                                <option value="Surgery">Surgery</option>
+
+                            </select>
+                        </div>
+
+                        <!-- APPOINTMENT DATE -->
+                        <div class="form-group">
+                            <label for="appointmentDate">Appointment Date</label>
+
+                            <input
+                                type="date"
+                                id="appointmentDate"
+                                required
+                            >
+                        </div>
+
+                        <!-- APPOINTMENT TIME -->
+                        <div class="form-group">
+                            <label for="appointmentTime">Appointment Time</label>
+
+                            <input
+                                type="time"
+                                id="appointmentTime"
+                                required
+                            >
+                        </div>
+
+                        <!-- STATUS -->
+                        <div class="form-group">
+                            <label for="appointmentStatus">Appointment Status</label>
+
+                            <select id="appointmentStatus" required>
+
+                                <option value="Pending">Pending</option>
+
+                                <option value="Confirmed">Confirmed</option>
+
+                            </select>
+                        </div>
+
+                        <!-- REASON -->
+                        <div class="form-group full-width">
+                            <label for="appointmentReason">Reason for Visit</label>
+
+                            <textarea
+                                id="appointmentReason"
+                                rows="4"
+                                placeholder="Enter reason for appointment"
+                                required
+                            ></textarea>
+                        </div>
+
+                    </div>
+
+                    <!-- FORM BUTTONS -->
+                    <div class="form-buttons">
+
+                        <button type="submit" class="submit-btn">
+                            Book Appointment
+                        </button>
+
+                        <button type="reset" class="reset-btn">
+                            Clear Form
+                        </button>
+
+                    </div>
+
+                </form>
+
+                <p id="appointmentMessage" role="status"></p>
+
+            </div>
+
+        </section>
+
+        <!-- DEPARTMENTS -->
+        <section id="departments" class="page">
+
+            <h2>Hospital Departments</h2>
+
+            <div class="content-card">
+
+                <h3>Our Departments</h3>
+
+                <ul>
+                    <li>General Medicine</li>
+                    <li>Pediatrics</li>
+                    <li>Maternity</li>
+                    <li>Dental Care</li>
+                    <li>Laboratory</li>
+                    <li>Surgery</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <!-- RECEPTION -->
+        <section id="reception" class="page">
+
+            <h2>Reception Management</h2>
+
+            <div class="content-card">
+                <h3>Patient Reception</h3>
+                <p>Manage patient check-ins and waiting queues.</p>
+            </div>
+
+        </section>
+
+        <!-- MEDICAL RECORDS -->
+        <section id="records" class="page">
+
+            <h2>Medical Records</h2>
+
+            <div class="content-card">
+                <h3>Patient Medical Information</h3>
+                <p>Manage demonstration medical records.</p>
+            </div>
+
+        </section>
+
+        <!-- PHARMACY -->
+        <section id="pharmacy" class="page">
+
+            <h2>Pharmacy Management</h2>
+
+            <div class="content-card">
+                <h3>Medicine Inventory</h3>
+                <p>Manage medicines and stock information.</p>
+            </div>
+
+        </section>
+
+        <!-- LABORATORY -->
+        <section id="laboratory" class="page">
+
+            <h2>Laboratory Management</h2>
+
+            <div class="content-card">
+                <h3>Laboratory Services</h3>
+                <p>Manage laboratory test requests and results.</p>
+            </div>
+
+        </section>
+
+        <!-- BILLING -->
+        <section id="billing" class="page">
+
+            <h2>Billing Management</h2>
+
+            <div class="content-card">
+                <h3>Patient Billing</h3>
+                <p>Manage invoices and payment records.</p>
+            </div>
+
+        </section>
+
+        <!-- STAFF -->
+        <section id="staff" class="page">
+
+            <h2>Staff Management</h2>
+
+            <div class="content-card">
+                <h3>Hospital Employees</h3>
+                <p>Manage hospital staff information.</p>
+            </div>
+
+        </section>
+
+        <!-- REPORTS -->
+        <section id="reports" class="page">
+
+            <h2>Hospital Reports</h2>
+
+            <div class="content-card">
+                <h3>Hospital Activity Reports</h3>
+                <p>View hospital statistics and reports.</p>
+            </div>
+
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <p>&copy; 2026 Referral Hospital. All Rights Reserved.</p>
+        </footer>
+
+    </main>
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+
